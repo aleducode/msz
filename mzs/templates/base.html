@@ -1,116 +1,475 @@
-{% load static i18n compress%}<!DOCTYPE html>
+{% load static i18n compress%}
+<!DOCTYPE html>
 {% get_current_language as LANGUAGE_CODE %}
 <html lang="{{ LANGUAGE_CODE }}">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>{% block title %}mzs{% endblock title %}</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="mzs landing page">
-    <meta name="author" content="ducode">
 
-    <link rel="icon" href="{% static 'images/favicons/favicon.ico' %}">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>{% block title %}Manzanares Cervecería{% endblock title %}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Manzanares Cervezería">
+  <meta name="author" content="ducode">
 
-    {% block css %}
-    <!-- Latest compiled and minified Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css" integrity="sha512-GQGU0fMMi238uA+a/bdWJfpUGKUkBdgfFdgBm72SUQ6BeyWjoY/ton0tEjH+OSH9iP4Dfh+7HM0I9f5eR0L/4w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- Your stuff: Third-party CSS libraries go here -->
+  <link rel="icon" href="{% static 'images/favicons/favicon.ico' %}">
 
-    <!-- This file stores project-specific CSS -->
-    {% compress css %}
-    <link href="{% static 'css/project.css' %}" rel="stylesheet">
-    {% endcompress %}
-    {% endblock %}
-    <!-- Le javascript
-    ================================================== -->
-    {# Placed at the top of the document so pages load faster with defer #}
-    {% block javascript %}
-      <!-- Bootstrap JS -->
-      <script defer src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.min.js" integrity="sha512-OvBgP9A2JBgiRad/mM36mkzXSXaJE9BEIENnVEmeZdITvwT09xnxLtT4twkCa8m/loMbPHsvPl0T8lRGVBwjlQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <!-- Your stuff: Third-party javascript libraries go here -->
+  {% block css %}
+  <!-- Latest compiled and minified Bootstrap CSS -->
+  <!-- Your stuff: Third-party CSS libraries go here -->
 
-      <!-- place project specific Javascript in this file -->
-      {% compress js %}
-      <script defer src="{% static 'js/project.js' %}"></script>
-      {% endcompress %}
+  <!-- This file stores project-specific CSS -->
+  {% compress css %}
+  <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'css/fakeLoader.css' %}" rel="stylesheet">
+  <link href="{% static 'css/owl-carousel.min.css' %}" rel="stylesheet">
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Catamaran:400,500,600,700,800%7CGrand+Hotel" rel="stylesheet">
 
-    {% endblock javascript %}
+  {% endcompress %}
+  {% endblock %}
 
-  </head>
 
-  <body>
+</head>
 
-    <div class="mb-1">
-      <nav class="navbar navbar-expand-md navbar-light bg-light">
-        <div class="container-fluid">
-          <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+<body>
+  <!-- Fake page loading -->
+  <div id="fakeLoader"></div>
+
+  <!-- Wrapper -->
+  <div class="wrapper">
+
+    <!-- Navigation -->
+    <div class="navbar section no-padding" role="navigation">
+      <!-- Heading -->
+      <div class="heading">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-4 hidden-xs">
+              <ul class="social">
+                <li><a href="#" class="fa fa-instagram"></a></li>
+                <li><a href="#" class="fa fa-facebook-square"></a></li>
+                <li><a href="#" class="fa fa-twitter-square"></a></li>
+              </ul>
+            </div>
+            <div class="col-sm-8">
+              <div class="finder">
+                <a href="#">
+                  <span class="fa fa-map-marker"></span> Find our beer
+                </a>
+              </div>
+              <div class="cart">
+                <a href="cart.html">
+                  <span class="fa fa-shopping-cart"></span> Empty
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="navbar-header">
+          <a href="index.html" class="logo" title="Craft beer landing page">
+            <img src="{% static 'images/logo.png' %}" alt="Craft Beer HTML Template">
+          </a>
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar top-bar"></span>
+            <span class="icon-bar middle-bar"></span>
+            <span class="icon-bar bottom-bar"></span>
           </button>
-          <a class="navbar-brand" href="{% url 'home' %}">mzs</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul id="menu-primary" class="nav navbar-nav">
+            <li class="active">
+              <span>
+                <a href="index.html">Esencia</a>
+              </span>
+            </li>
+            <li>
+              <span>
+                <a href="shop.html">Nuestra Casa</a>
+              </span>
+            </li>
+            <li>
+              <span>
+                <a href="our-story.html">Blog</a>
+              </span>
+            </li>
+            <li>
+              <span>
+                <a href="contact.html">Contáctenos</a>
+              </span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
 
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-              <li class="nav-item active">
-                <a class="nav-link" href="{% url 'home' %}">Home <span class="visually-hidden">(current)</span></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'about' %}">About</a>
-              </li>
-              {% if request.user.is_authenticated %}
-                <li class="nav-item">
-                  {# URL provided by django-allauth/account/urls.py #}
-                  <a class="nav-link" href="{% url 'users:detail' request.user.username  %}">{% translate "My Profile" %}</a>
-                </li>
-                <li class="nav-item">
-                  {# URL provided by django-allauth/account/urls.py #}
-                  <a class="nav-link" href="{% url 'account_logout' %}">{% translate "Sign Out" %}</a>
-                </li>
-              {% else %}
-                {% if ACCOUNT_ALLOW_REGISTRATION %}
-              <li class="nav-item">
-                {# URL provided by django-allauth/account/urls.py #}
-                <a id="sign-up-link" class="nav-link" href="{% url 'account_signup' %}">{% translate "Sign Up" %}</a>
-              </li>
-              {% endif %}
-                <li class="nav-item">
-                  {# URL provided by django-allauth/account/urls.py #}
-                  <a id="log-in-link" class="nav-link" href="{% url 'account_login' %}">{% translate "Sign In" %}</a>
-                </li>
-              {% endif %}
+    <!-- Hero -->
+    <div id="hero" class="carousel slide carousel-fade section no-padding" data-ride="carousel">
+
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#hero" data-slide-to="0" class="active"></li>
+        <li data-target="#hero" data-slide-to="1"></li>
+        <li data-target="#hero" data-slide-to="2"></li>
+      </ol>
+
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner">
+        <div class="item active" style="background-image: url('{% static 'images/hero-1.jpg' %}')">
+          <!-- Content -->
+          <div class="container">
+            <div class="row blurb scrollme animateme" data-when="exit" data-from="0" data-to="1" data-opacity="0"
+              data-translatey="100">
+              <div class="col-md-10 col-md-offset-1">
+                <h1>Bienvenidos a:</h1>
+                <h2>Manzanares<br />
+                  <small class="small-text">cervezería artesanal</small>
+                </h2>
+                <a href="#" class="btn btn-default">
+                  <span>Explorar</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section -->
+    <div class="container-fluid dark section no-padding">
+      <div class="row">
+        <div class="col-sm-6 matchHeight scrollme animateme" data-when="enter" data-from="0.75" data-to="0"
+          data-opacity="0" data-translatex="-75">
+          <section class="alignMiddle padding-80 mobile-center">
+            <header>
+              <h1>¿Porqué</h1>
+              <h2>artesanal?</h2>
+            </header>
+            <p>Las recetas cuentan la experiencia del maestro a través de ingredientes totalmente naturales,
+              sin conservantes ni colorantes artificiales, con procesos de fabricación y filtración mayormente manuales,
+              rindiéndole tributo a los aromas y sabores propios de la vida y pasión cervecera.
+            </p>
+          </section>
+        </div>
+        <div class="col-sm-6 matchHeight" style="background-image: url('{% static 'images/background.jpg');">
+          <div class="row">
+            <div class="col-xs-6 icon-grid">
+              <img src="{% static 'images/Hops.svg' %}" class="svg" alt="Quality Ingredients" />
+              <h4>Quality Ingredients</h4>
+              <p>Claritas est etiam processus dynamicus, qui sequitur mutationem.</p>
+            </div>
+            <div class="col-xs-6 icon-grid">
+              <img src="{% static 'images/Sun.svg' %}" class="svg" alt="Natural sunshine" />
+              <h4>Natural sunshine</h4>
+              <p>Claritas est etiam processus dynamicus, qui sequitur mutationem.</p>
+            </div>
+            <div class="col-xs-6 icon-grid">
+              <img src="{% static 'images/Barrel.svg' %}" class="svg" alt="Fermentation" />
+              <h4>Fermentation</h4>
+              <p>Claritas est etiam processus dynamicus, qui sequitur mutationem.</p>
+            </div>
+            <div class="col-xs-6 icon-grid">
+              <img src="{% static 'images/BottleCrate.svg' %}" class="svg" alt="Unrivalled taste" />
+              <h4>Unrivalled taste</h4>
+              <p>Claritas est etiam processus dynamicus, qui sequitur mutationem.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section -->
+    <div class="container-fluid light section" style="background-image: url('{% static 'images/container.jpg');">
+      <div id="carousel-1" class="carousel slide carousel-fade bs-carousel" data-ride="carousel">
+
+        <div class="carousel-inner" role="listbox">
+
+          <!-- Slide 1 -->
+          <div class="item active">
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-6 matchHeight">
+                  <img src="{% static 'images/silos.jpg' %}" alt="About our Brewery" class="alignMiddle" />
+                </div>
+                <div class="col-sm-5 col-sm-push-1 matchHeight">
+                  <section class="alignMiddle mobile-center">
+                    <header>
+                      <h1>Nuestra Casa:</h1>
+                      <h2>Quienes somos</h2>
+                    </header>
+                    <p>Manzanares es una micro cervecería que nace en el año 2021, inspirada en
+                      los sabores tradicionales, reinterpretados con recetas propias que exaltan
+                      sensaciones y nuevas experiencias.</p>
+                    <p>Nuestras recetas, están elaboradas con ingredientes naturales, sin aditivos,
+                      conservantes o colorantes artificiales, por lo que conserva su sabor original,
+                      permitiendo que nuestros clientes conozcan diversas culturas y nuevos
+                      estilos.</p>
+                  </section>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="item">
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-6 matchHeight">
+                  <img src="{% static 'images/silos.jpg' %}" alt="About our Brewery" class="alignMiddle" />
+                </div>
+                <div class="col-sm-5 col-sm-push-1 matchHeight">
+                  <section class="alignMiddle mobile-center">
+                    <header>
+                      <h1>Made to share with</h1>
+                      <h2>Friends</h2>
+                    </header>
+                    <p>A blend of lambic beers brewed at 3 Fonteinen, with an addition of 30% whole
+                      fresh raspberries from the fabled Payottenland and 5% sour cherries. This
+                      unfiltered beer will enjoy a spontaneous refermentation in the bottle. No
+                      artificial colors or flavor enhancers are added. Lambic is brewed only from
+                      60% barley malt, 40% unmalted wheat, hops and water.</p>
+                    <a href="#" class="btn btn-default"><span>Learn more</span></a>
+                  </section>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <a class="left carousel-control" href="#carousel-1" data-slide="prev">
+          <span class="fa fa-chevron-left" aria-hidden="true"></span>
+        </a>
+        <a class="right carousel-control" href="#carousel-1" data-slide="next">
+          <span class="fa fa-chevron-right" aria-hidden="true"></span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Section -->
+    <div class="container-fluid dark section" style="background-image: url('{% static 'images/bg-1.jpg');">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-5 matchHeight scrollme animateme" data-when="enter" data-from="0.75" data-to="0"
+            data-opacity="0" data-translatex="-75">
+            <div class="alignMiddle mobile-center">
+              <header>
+                <h1>Browse the</h1>
+                <h2>Beer aisle</h2>
+              </header>
+              <p>Smoky characters emerge as the beer warms, as do subtle drops of caramel. The overall
+                dryness of the beer carries through to the finish, with a semi-burnt linger and bitter
+                end.</p>
+              <a href="#" class="btn btn-default"><span>Show me more</span></a>
+            </div>
+          </div>
+          <div class="col-sm-6 col-sm-push-1 matchHeight">
+            <div class="owl-carousel">
+              <!-- Products -->
+              <div class="product item">
+                <a href="our-beer.html">
+                  <span>Buy it</span>
+                  <img src="{% static 'images/beer.png' %}" alt="Beer can mockup">
+                </a>
+                <h3>Pale ale</h3>
+                <h4>&dollar;4.75</h4>
+              </div>
+              <div class="product item">
+                <a href="our-beer.html">
+                  <span>Buy it</span>
+                  <img src="{% static 'images/beer.png' %}" alt="Beer can mockup">
+                </a>
+                <h3>Golden ale</h3>
+                <h4>&dollar;5.00</h4>
+              </div>
+              <div class="product item">
+                <a href="our-beer.html">
+                  <span>Buy it</span>
+                  <img src="{% static 'images/beer.png' %}" alt="Beer can mockup">
+                </a>
+                <h3>IPA</h3>
+                <h4>&dollar;4.50</h4>
+              </div>
+              <div class="product item">
+                <a href="our-beer.html">
+                  <span>Buy it</span>
+                  <img src="{% static 'images/beer.png' %}" alt="Beer can mockup">
+                </a>
+                <h3>Pale ale</h3>
+                <h4>&dollar;4.50</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section -->
+    <div class="container-fluid light section no-padding">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-6 latest-post odd matchHeight">
+            <a href="#"></a>
+            <div class="row">
+              <div class="col-sm-10 col-sm-push-1">
+                <header>
+                  <span class="date">21 December</span>
+                  <h2>Oktoberfest</h2>
+                </header>
+                <p>Brewed with licorice; a proprietary, hand-smoked malt; and almost a pound of East
+                  Kent Goldings hops per barrel.</p>
+                <p>Opaque brown in color, with muddy brown edges and a cola-colored head that drops
+                  quickly to a ringed lace. Strong and dominating licorice aroma with an underlying
+                  robust molasses-ness and highly roasted malts. Thick-ish, deep blackstrap molasses
+                  character (sweet, tangy nectar), quite robust.</p>
+                <p><a href="#" class="underline">Read more</a></p>
+              </div>
+            </div>
+            <div class="background" style="background-image: url('{% static 'images/barman.jpg' %}');"></div>
+          </div>
+          <div class="col-sm-6 latest-post even matchHeight">
+            <a href="#"></a>
+            <div class="row">
+              <div class="col-sm-10 col-sm-push-1">
+                <header>
+                  <span class="date">14 December</span>
+                  <h2>Now stocked in NYC</h2>
+                </header>
+                <p>Brewed with licorice; a proprietary, hand-smoked malt; and almost a pound of East
+                  Kent Goldings hops per barrel.</p>
+                <p>Opaque brown in color, with muddy brown edges and a cola-colored head that drops
+                  quickly to a ringed lace. Strong and dominating licorice aroma with an underlying
+                  robust molasses-ness and highly roasted malts. Thick-ish, deep blackstrap molasses
+                  character (sweet, tangy nectar), quite robust.</p>
+                <p><a href="#" class="underline">Read more</a></p>
+              </div>
+            </div>
+            <div class="background" style="background-image: url('{% static 'images/people.jpg' %}');"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section -->
+    <div class="container-fluid super-dark section">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-6 col-sm-3">
+            <div class="counter">
+              <img src="{% static 'images/Can.svg' %}" class="svg" alt="" />
+              <span>207</span>
+              Flavours
+            </div>
+          </div>
+          <div class="col-xs-6 col-sm-3">
+            <div class="counter">
+              <img src="{% static 'images/Sign.svg' %}" class="svg" alt="" />
+              <span class="one">396</span>
+              Outlets
+            </div>
+          </div>
+          <div class="col-xs-6 col-sm-3">
+            <div class="counter">
+              <img src="{% static 'images/Badge.svg' %}" class="svg" alt="" />
+              <span>60</span>
+              Years brewing
+            </div>
+          </div>
+          <div class="col-xs-6 col-sm-3">
+            <div class="counter">
+              <img src="{% static 'images/BarrelSide.svg' %}" class="svg" alt="" />
+              <span>21</span>
+              Days til ready
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-2">
+            <h6>Useful</h6>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="shop.html">Shop</a></li>
+              <li><a href="our-story.html">Our story</a></li>
+              <li><a href="blog.html">Blog</a></li>
+              <li><a href="#">Login</a></li>
+            </ul>
+          </div>
+          <div class="col-sm-2">
+            <h6>Help</h6>
+            <ul>
+              <li><a href="#">Customer service</a></li>
+              <li><a href="#">Find our beer</a></li>
+              <li><a href="#">Recent orders</a></li>
+              <li><a href="#">Contact</a></li>
+              <li><a href="#">Terms &amp; Privacy</a></li>
+            </ul>
+          </div>
+          <div class="col-sm-2">
+            <h6>Shop</h6>
+            <ul>
+              <li><a href="#">Pale ale</a></li>
+              <li><a href="#">Golden ale</a></li>
+              <li><a href="#">Dark ale</a></li>
+              <li><a href="#">IPA</a></li>
+            </ul>
+          </div>
+          <div class="col-sm-5 col-sm-push-1">
+            <h6>Our information</h6>
+            <p><i class="fa fa-map-marker"></i> 94 River Road, London, United Kingdom</p>
+            <p><i class="fa fa-envelope-o"></i> sales@craftbeer-nation.com</p>
+            <p><i class="fa fa-phone"></i> (0)203 123 4567</p>
+            <ul class="social">
+              <li><a href="#" class="fa fa-instagram"></a></li>
+              <li><a href="#" class="fa fa-facebook-square"></a></li>
+              <li><a href="#" class="fa fa-twitter-square"></a></li>
             </ul>
           </div>
         </div>
-      </nav>
+        <div class="copyright">
+          <p>2017 &copy; Craft Beer Nation / <a href="http://www.klevermedia.co.uk">Web design by Klever
+              media</a></p>
+        </div>
+      </div>
+    </footer>
 
-    </div>
+  </div>
+  {% block modal %}{% endblock modal %}
+  <!-- Le javascript
+    ================================================== -->
+  {# Placed at the top of the document so pages load faster with defer #}
+  {% block javascript %}
+  <!-- Your stuff: Third-party javascript libraries go here -->
 
-    <div class="container">
+  <script src="{% static 'js/jquery-2.2.4.min.js' %}"></script>
+  <script src="{% static 'js/jquery-ui.min.js' %}"></script>
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'js/headhesive.min.js' %}"></script>
+  <script src="{% static 'js/matchHeight.min.js' %}"></script>
+  <script src="{% static 'js/modernizr.custom.js' %}"></script>
+  <script src="{% static 'js/waypoints.min.js' %}"></script>
+  <script src="{% static 'js/counterup.js' %}"></script>
+  <script src="{% static 'js/scrollme.min.js' %}"></script>
+  <script src="{% static 'js/fakeLoader.min.js' %}"></script>
+  <script src="{% static 'js/owl.carousel.js' %}"></script>
+  <script src="{% static 'js/owl.autoplay.js' %}"></script>
+  <script src="https://use.fontawesome.com/4dfd2d448a.js"></script>
+  <script src="{% static 'js/custom.js' %}"></script>
 
-      {% if messages %}
-        {% for message in messages %}
-          <div class="alert alert-dismissible {% if message.tags %}alert-{{ message.tags }}{% endif %}">
-            {{ message }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-          </div>
-        {% endfor %}
-      {% endif %}
+  <!-- place project specific Javascript in this file -->
+  {% compress js %}
+  {% endcompress %}
 
-      {% block content %}
-        <p>Use this document as a way to quick start any new project.</p>
-      {% endblock content %}
+  {% endblock javascript %}
 
-    </div> <!-- /container -->
+</body>
 
-    {% block modal %}{% endblock modal %}
-
-    {% block inline_javascript %}
-    {% comment %}
-    Script tags with only code, no src (defer by default). To run
-    with a "defer" so that you run inline code:
-    <script>
-      window.addEventListener('DOMContentLoaded', () => {/* Run whatever you want */});
-    </script>
-    {% endcomment %}
-    {% endblock inline_javascript %}
-  </body>
 </html>
