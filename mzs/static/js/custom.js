@@ -49,7 +49,7 @@ jQuery(function ($) {
 	});
 
 	// Owl carousel
-	$(window).on('load resize scroll', function(){  
+	$(window).on('load resize scroll', function(){
 		$("#partners").owlCarousel({
 			loop: true,
 			autoplay: true,
@@ -61,8 +61,8 @@ jQuery(function ($) {
 				768 : { items : 3  },
 				1024 : { items : 4 }
 			},
-		});  
-		
+		});
+
 		$(".owl-carousel").owlCarousel({
 			items: 1,
 			loop: true,
@@ -155,29 +155,29 @@ jQuery(function ($) {
 			scrollElement = this.nodeName.toLowerCase();
 			$(this).attr('scrollTop', initScrollTop);
 			return false;
-		}    
+		}
 	});
-	
+
 	// Smooth scrolling for internal links
 	$("a[href^='#']").not('.tabs a, a.carousel-control, .show-more').click(function(event) {
 		event.preventDefault();
-		
+
 		var $this = $(this),
 		target = this.hash,
 		$target = $(target);
-		
+
 		$(scrollElement).stop().animate({
 			'scrollTop': $target.offset().top
 		}, 1500, 'swing', function() {
 			window.location.hash = target;
 		});
-		
+
 	});
 
 	// Google maps
 	if ($("#map").length > 0){
-		
-			$("#map").gmap3({                        
+
+			$("#map").gmap3({
 			map:{
 				options:{
 					zoom: 14,
@@ -385,7 +385,7 @@ jQuery(function ($) {
 					draggable: true,
 					scrollwheel: false,
 				}
-			}            
+			}
 			,
 			marker:{
 				latLng:[51.513614, -0.136549],

@@ -7,11 +7,11 @@
     height: 47px;
 }
 
-#tabs ul:after, #tabs ul li:after { 
-   content: "."; 
-   visibility: hidden; 
-   display: block; 
-   height: 0; 
+#tabs ul:after, #tabs ul li:after {
+   content: ".";
+   visibility: hidden;
+   display: block;
+   height: 0;
    clear: both;
 }
 
